@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Pengu - Virtual Pet</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-layout">
+        <div class="customize-panel">
+            <h3>Customize</h3>
+            <div class="customize-section">
+                <h4>Color</h4>
+                <div class="color-options">
+                    <button class="color-btn" style="background: #ff9999" onclick="changePetColor('#ff9999')"></button>
+                    <button class="color-btn" style="background: #99ff99" onclick="changePetColor('#99ff99')"></button>
+                    <button class="color-btn" style="background: #9999ff" onclick="changePetColor('#9999ff')"></button>
+                    <button class="color-btn" style="background: #ffff99" onclick="changePetColor('#ffff99')"></button>
+                    <button class="color-btn" style="background: #ff99ff" onclick="changePetColor('#ff99ff')"></button>
+                </div>
+            </div>
+            
+            <div class="customize-section">
+                <h4>Size</h4>
+                <div class="size-options">
+                    <button class="size-btn" onclick="changePetSize('small')">S</button>
+                    <button class="size-btn" onclick="changePetSize('normal')">M</button>
+                    <button class="size-btn" onclick="changePetSize('large')">L</button>
+                </div>
+            </div>
+            
+            <div class="customize-section">
+                <h4>Background</h4>
+                <div class="bg-options">
+                    <button class="bg-btn" onclick="changeBackground('default')">🌸</button>
+                    <button class="bg-btn" onclick="changeBackground('space')">⭐</button>
+                    <button class="bg-btn" onclick="changeBackground('forest')">🌲</button>
+                    <button class="bg-btn" onclick="changeBackground('ocean')">🌊</button>
+                    <button class="bg-btn" onclick="changeBackground('sunset')">🌅</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="pet-card">
+                <div class="pet-area">
+                    <div id="pet" class="pet"></div>
+                </div>
+                
+                <div class="status-box">
+                    <p id="status">I'm feeling great!</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-label">Hunger</span>
+                            <div class="stat-bar">
+                                <div id="hunger-bar" class="stat-fill"></div>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Happy</span>
+                            <div class="stat-bar">
+                                <div id="happiness-bar" class="stat-fill"></div>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Energy</span>
+                            <div class="stat-bar">
+                                <div id="energy-bar" class="stat-fill"></div>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Health</span>
+                            <div class="stat-bar">
+                                <div id="health-bar" class="stat-fill"></div>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Level</span>
+                            <div class="stat-bar">
+                                <div id="level-bar" class="stat-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button class="pixel-btn feed-btn" onclick="feedPet()">
+                        <span class="btn-icon">🍎</span>
+                        <span class="btn-text">Feed</span>
+                    </button>
+                    <button class="pixel-btn play-btn" onclick="startMinigame()">
+                        <span class="btn-icon">🎾</span>
+                        <span class="btn-text">Play</span>
+                    </button>
+                    <button class="pixel-btn sleep-btn" onclick="sleepPet()">
+                        <span class="btn-icon">💤</span>
+                        <span class="btn-text">Sleep</span>
+                    </button>
+                </div>
+                
+                <div id="minigame" class="minigame hidden">
+                    <h4>Catch the Ball!</h4>
+                    <div class="game-area">
+                        <div id="ball" class="ball"></div>
+                        <div id="paddle" class="paddle"></div>
+                    </div>
+                    <div class="game-info">
+                        <span>Score: <span id="score">0</span></span>
+                        <button class="pixel-btn" onclick="endMinigame()">Stop</button>
+                    </div>
+                </div>
+                
+                <div class="extra-controls">
+                    <button class="pixel-btn wash-btn" onclick="washPet()">
+                        <span class="btn-icon">🛁</span>
+                        <span class="btn-text">Wash</span>
+                    </button>
+                    <button class="pixel-btn pet-btn" onclick="petPet()">
+                        <span class="btn-icon">❤️</span>
+                        <span class="btn-text">Pet</span>
+                    </button>
+                    <button class="pixel-btn train-btn" onclick="trainPet()">
+                        <span class="btn-icon">🏃</span>
+                        <span class="btn-text">Train</span>
+                    </button>
+                </div>
+                
+                <div class="achievements">
+                    <h4>Achievements</h4>
+                    <div id="achievement-list" class="achievement-list"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-panel">
+            <h3>Chat with Pengu</h3>
+            <div id="chat-messages" class="chat-messages"></div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Say something..." onkeypress="handleEnter(event)">
+                <button class="pixel-btn" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Pet Stats</h4>
+                <div class="footer-stats">
+                    <span id="footer-level">Level: 1</span>
+                    <span id="footer-age">Age: 0 days</span>
+                    <span id="footer-exp">EXP: 0/100</span>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Actions</h4>
+                <div class="quick-actions">
+                    <button class="quick-btn" onclick="resetPet()">🔄 Reset</button>
+                    <button class="quick-btn" onclick="savePet()">💾 Save</button>
+                    <button class="quick-btn" onclick="loadPet()">📁 Load</button>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Info</h4>
+                <div class="footer-info">
+                    <span>Pengu v1.0</span>
+                    <span id="uptime">Uptime: 0s</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
