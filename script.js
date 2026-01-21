@@ -195,11 +195,22 @@ document.addEventListener('touchmove', function(e) {
   }
 });
 
+document.addEventListener('mousemove', function(e) {
+  if (gameActive) {
+    const gameArea = document.querySelector('.game-area');
+    const rect = gameArea.getBoundingClientRect();
+    paddleX = Math.max(20, Math.min(180, e.clientX - rect.left - 20));
+  }
+});
+
 function sleepPet() {
   energy = Math.min(100, energy + 30);
   hunger = Math.max(0, hunger - 5);
   health = Math.min(100, health + 10);
   gainExperience(1);
+  totalInteractions++;
+  checkAchievements();
+  addSparkle();
   updateDisplay();
 }
 
@@ -208,6 +219,9 @@ function washPet() {
   happiness = Math.min(100, happiness + 10);
   energy = Math.max(0, energy - 5);
   gainExperience(2);
+  totalInteractions++;
+  checkAchievements();
+  addSparkle();
   updateDisplay();
 }
 
@@ -215,6 +229,9 @@ function petPet() {
   happiness = Math.min(100, happiness + 15);
   health = Math.min(100, health + 5);
   gainExperience(1);
+  totalInteractions++;
+  checkAchievements();
+  addSparkle();
   updateDisplay();
 }
 
@@ -222,6 +239,9 @@ function trainPet() {
   energy = Math.max(0, energy - 20);
   hunger = Math.max(0, hunger - 15);
   gainExperience(5);
+  totalInteractions++;
+  checkAchievements();
+  addSparkle();
   updateDisplay();
 }
 

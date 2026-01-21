@@ -344,6 +344,70 @@ body {
     margin-top: 12px;
 }
 
+.controls {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.pixel-btn {
+    background: #e8f4fd;
+    border: 2px solid #b8d4e8;
+    padding: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 0.1s ease;
+    box-shadow: 
+        inset 1px 1px 0 #ffffff,
+        inset -1px -1px 0 #a8c4d8,
+        2px 2px 0 #98b4c8;
+    position: relative;
+}
+
+.pixel-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 
+        inset 1px 1px 0 #ffffff,
+        inset -1px -1px 0 #a8c4d8,
+        3px 3px 0 #98b4c8;
+}
+
+.pixel-btn:active {
+    transform: translateY(1px);
+    box-shadow: 
+        inset 1px 1px 0 #a8c4d8,
+        inset -1px -1px 0 #ffffff,
+        1px 1px 0 #98b4c8;
+}
+
+.feed-btn {
+    background: #ffe8e8;
+    border-color: #ffb8b8;
+}
+
+.feed-btn:hover {
+    background: #ffd8d8;
+}
+
+.play-btn {
+    background: #e8ffe8;
+    border-color: #b8ffb8;
+}
+
+.play-btn:hover {
+    background: #d8ffd8;
+}
+
+.sleep-btn {
+    background: #f0e8ff;
+    border-color: #d0b8ff;
+}
+
+.sleep-btn:hover {
+    background: #e8d8ff;
+}
+
 .btn-text {
     display: block;
     font-size: 6px;
@@ -657,75 +721,6 @@ body {
     .quick-actions {
         justify-content: center;
     }
-
-.controls {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-}
-
-.pixel-btn {
-    background: #e8f4fd;
-    border: 2px solid #b8d4e8;
-    padding: 12px;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 16px;
-    transition: all 0.1s ease;
-    box-shadow: 
-        inset 1px 1px 0 #ffffff,
-        inset -1px -1px 0 #a8c4d8,
-        2px 2px 0 #98b4c8;
-    position: relative;
-}
-
-.pixel-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 
-        inset 1px 1px 0 #ffffff,
-        inset -1px -1px 0 #a8c4d8,
-        3px 3px 0 #98b4c8;
-}
-
-.pixel-btn:active {
-    transform: translateY(1px);
-    box-shadow: 
-        inset 1px 1px 0 #a8c4d8,
-        inset -1px -1px 0 #ffffff,
-        1px 1px 0 #98b4c8;
-}
-
-.feed-btn {
-    background: #ffe8e8;
-    border-color: #ffb8b8;
-}
-
-.feed-btn:hover {
-    background: #ffd8d8;
-}
-
-.play-btn {
-    background: #e8ffe8;
-    border-color: #b8ffb8;
-}
-
-.play-btn:hover {
-    background: #d8ffd8;
-}
-
-.sleep-btn {
-    background: #f0e8ff;
-    border-color: #d0b8ff;
-}
-
-.sleep-btn:hover {
-    background: #e8d8ff;
-}
-
-.btn-icon {
-    display: block;
-    font-size: 16px;
-    filter: grayscale(0.2);
 }
 
 .achievements {
