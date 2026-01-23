@@ -1,158 +1,195 @@
-# 🐧 Pengu - Virtual Pet v1.0
+# 🐧 Pengu - Virtual Pet v2.0
 
-A delightful pixel-art virtual pet game built with vanilla HTML, CSS, and JavaScript. Take care of your adorable pet Pengu with interactive gameplay, customization options, and achievement system!
+A delightful pixel-art virtual pet game built with vanilla HTML, CSS, and JavaScript. Take care of your adorable pet Pengu with interactive gameplay, multiple pet types, seasonal events, and advanced features!
 
-## ✨ Features
+## ✨ New in v2.0
 
-### 🎮 Core Gameplay
-- **6 Interactive Actions**: Feed, Play, Sleep, Wash, Pet, and Train your Pengu
-- **5 Dynamic Stats**: Hunger, Happiness, Energy, Health, and Level progression
-- **Real-time Mood System**: Pengu's appearance changes based on current stats
-- **Experience & Leveling**: Gain XP through interactions and level up your pet
+### 🦄 Multiple Pet Types
+- **Pengu (Penguin)**: Classic balanced pet
+- **Kitto (Cat)**: High happiness, needs more attention
+- **Doggo (Dog)**: High energy, loves to play
+- **Bunno (Rabbit)**: Fast growth, gentle nature
+- **Each pet type has unique stats and behaviors**
 
-### 🎯 Minigame
-- **Catch the Ball**: Interactive paddle game with mouse/touch controls
-- **Score-based Rewards**: Higher scores = more happiness and experience
-- **Mobile Optimized**: Touch controls for mobile devices
+### 🎃 Seasonal Events
+- **Spring**: Flower blooming event (+happiness)
+- **Summer**: Beach party event (+energy)
+- **Autumn**: Harvest festival (+health)
+- **Winter**: Cozy hibernation (+all stats)
+- **Special seasonal backgrounds and bonuses**
 
-### 💬 AI Chat System
-- **Interactive Conversations**: Chat with Pengu in real-time
-- **Mood-based Responses**: Pengu responds differently based on current state
-- **Joke System**: Ask for jokes and get pet-themed humor
-- **Keyword Recognition**: Responds to greetings, questions, and commands
+### 🎮 New Minigames
+- **Memory Match**: Test your memory skills
+- **Color Catch**: Catch the right colored items
+- **Rhythm Tap**: Tap to the beat
+- **Each game rewards different stats**
 
-### 🎨 Customization
-- **5 Pet Colors**: Choose from various color schemes
-- **3 Size Options**: Small, Medium, and Large pet sizes
-- **5 Background Themes**: Default, Space, Forest, Ocean, and Sunset
-- **Beautiful Imagery**: High-quality background images from Unsplash
+### 🏆 Advanced Achievement System
+- **50+ Achievements** across multiple categories
+- **Rare Achievements** for dedicated players
+- **Achievement Rewards** unlock special features
+- **Progress Tracking** for all activities
 
-### 🏆 Achievement System
-- **Level Master**: Reach level 5
-- **Caretaker**: Complete 50+ interactions
-- **Perfect Pet**: Achieve 100% in all stats
-- **Elder**: Raise your pet to 100+ days old
-- **Visual Rewards**: Golden achievement badges with animations
+### 💝 Pet Evolution System
+- **Baby → Child → Adult → Elder** stages
+- **Different appearances** for each stage
+- **Unique abilities** unlock with evolution
+- **Special evolution requirements**
 
-### 💾 Data Persistence
-- **Save/Load System**: Your progress is automatically saved
-- **Local Storage**: Data persists between browser sessions
-- **Reset Option**: Start fresh with confirmation dialog
-- **Complete Backup**: All stats, achievements, and customizations saved
+### 🌟 Premium Features
+- **Pet Accessories**: Hats, glasses, and more
+- **Special Animations**: Dance, spin, jump
+- **Mood Expressions**: 10+ different faces
+- **Interactive Toys**: Balls, books, music box
 
-### 📱 Mobile Responsive
-- **Touch Controls**: Full touch support for mobile devices
-- **Responsive Layout**: Adapts to different screen sizes
-- **Mobile-first Design**: Optimized for both desktop and mobile
+## 🎮 Core Gameplay (Enhanced)
+
+### 🎯 Interactive Actions
+- **8 Core Actions**: Feed, Play, Sleep, Wash, Pet, Train, Study, Exercise
+- **6 Dynamic Stats**: Hunger, Happiness, Energy, Health, Intelligence, Strength
+- **Advanced Mood System**: 15+ different moods and expressions
+- **Skill Development**: Pets learn and improve over time
+
+### 🎪 Multiple Minigames
+- **Catch the Ball**: Classic paddle game
+- **Memory Match**: Card matching challenge
+- **Color Catch**: Reaction-based catching(In development)
+- **Rhythm Tap**: Music rhythm game(Working, but playbel)
+- **Puzzle Solver**: Logic puzzles
+
+### 💬 Enhanced AI Chat
+- **Personality-based responses** for each pet type
+- **Learning system**: Pets remember conversations
+- **Mood-influenced dialogue**: Responses change with stats
+- **Special commands**: Tricks, stories, songs
+- **Seasonal greetings** and event responses
+
+### 🎨 Advanced Customization
+- **8 Pet Types** with unique characteristics
+- **20+ Colors** including rare and seasonal variants
+- **5 Size Options**: Tiny, Small, Medium, Large, Giant
+- **10 Background Themes** including seasonal and premium
+- **Pet Accessories**: Unlockable cosmetic items
+
+### 🏆 Comprehensive Achievement System
+- **Caretaker Achievements**: Interaction milestones
+- **Explorer Achievements**: Discover all features
+- **Master Achievements**: Perfect care records
+- **Seasonal Achievements**: Event participation
+- **Rare Achievements**: Special hidden challenges
+- **Achievement Rewards**: Unlock exclusive content
+
+### 💾 Advanced Data Management
+- **Cloud Save Support**: Sync across devices (future)
+- **Export/Import**: Share pet data with friends
+- **Backup System**: Multiple save slots
+- **Statistics Tracking**: Detailed analytics
+- **Progress History**: View growth over time
+
+### 📱 Enhanced Mobile Experience
+- **Gesture Controls**: Swipe and pinch interactions
+- **Haptic Feedback**: Vibration on interactions
+- **Offline Mode**: Play without internet
+- **Push Notifications**: Care reminders (future)
+- **Widget Support**: Home screen pet status
 
 ## 🚀 Getting Started
 
 ### Quick Start
 1. Clone or download this repository
 2. Open `index.html` in your web browser
-3. Start caring for your Pengu!
+3. Choose your pet type and start your journey!
 
 ### GitHub Pages Deployment
 1. Fork this repository
 2. Go to Settings > Pages
 3. Select "Deploy from a branch" and choose `main`
-4. Your Pengu will be live at `https://yourusername.github.io/pengu`
+4. Your Pengu v2.0 will be live at `https://yourusername.github.io/pengu`
 
 ## 🎯 How to Play
 
-### Basic Care
-- **🍎 Feed**: Increases hunger and health
-- **🎾 Play**: Starts minigame, increases happiness
-- **💤 Sleep**: Restores energy and health
-- **🛁 Wash**: Improves health and happiness
-- **❤️ Pet**: Shows affection, boosts happiness and health
-- **🏃 Train**: Intensive exercise for maximum experience
+### Pet Selection
+- Choose from 8 different pet types
+- Each pet has unique stats and personalities
+- Customize appearance and name your pet
+- Start your virtual pet journey!
 
-### Chat Interaction
-- Type messages to chat with Pengu
-- Ask for jokes by typing "joke", "funny", or "laugh"
-- Pengu responds based on current mood and keywords
-- Use greetings like "hi", "hello", or "hey"
+### Advanced Care
+- **🍎 Feed**: Multiple food types with different effects
+- **🎾 Play**: Choose from 5 different minigames
+- **💤 Sleep**: Rest and dream for stat recovery
+- **🛁 Wash**: Hygiene affects health and happiness
+- **❤️ Pet**: Show affection and build bond
+- **🏃 Train**: Physical exercise for strength
+- **📚 Study**: Mental exercise for intelligence
+- **🏋️ Exercise**: Advanced training routines
 
-### Achievements
-- Complete various milestones to unlock achievements
-- Achievements are displayed as golden badges
-- Each achievement triggers a special message from Pengu
-- Progress is automatically saved
+### Seasonal Events
+- **Participate** in seasonal activities
+- **Earn** special rewards and bonuses
+- **Unlock** exclusive seasonal content
+- **Collect** limited-time achievements
+
+### Pet Evolution
+- **Care** for your pet to trigger evolution
+- **Meet** specific requirements for each stage
+- **Unlock** new abilities and appearances
+- **Celebrate** evolution milestones
 
 ## 🛠️ Technical Details
 
 ### Built With
-- **HTML5**: Semantic structure and accessibility
-- **CSS3**: Modern styling with animations and responsive design
-- **Vanilla JavaScript**: No frameworks, pure ES6+ code
-- **Local Storage API**: Data persistence
-- **Unsplash API**: Beautiful background images
+- **HTML5**: Advanced semantic structure
+- **CSS3**: Modern animations and effects
+- **Vanilla JavaScript**: ES6+ with advanced features
+- **Local Storage**: Enhanced data persistence
+- **Web APIs**: Geolocation, notifications, vibration
+- **Progressive Web App**: Installable experience
+
+### Performance Enhancements
+- **Optimized Rendering**: 60fps animations
+- **Memory Management**: Efficient resource usage
+- **Lazy Loading**: Assets loaded on demand
+- **Compression**: Reduced file sizes
+- **Caching**: Improved loading times
 
 ### Browser Compatibility
-- Chrome 60+
-- Firefox 55+
-- Safari 12+
-- Edge 79+
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-### Performance
-- Lightweight: ~50KB total size
-- Fast loading: No external dependencies
-- Smooth animations: 60fps CSS animations
-- Efficient: Minimal DOM manipulation
+- Chrome 70+
+- Firefox 65+
+- Safari 13+
+- Edge 80+
+- Mobile browsers with full PWA support
 
 ## 📁 Project Structure
 
 ```
-Pengu/
-├── index.html          # Main HTML structure
-├── style.css           # All styling and animations
-├── script.js           # Game logic and interactions
+Pengu-v2/
+├── index.html          # Main application
+├── style.css           # Enhanced styling
+├── script.js           # Core game logic
+├── pets/               # Pet type definitions
+├── minigames/          # Game modules
+├── assets/             # Images and sounds
+├── data/               # Game data files
 └── README.md           # This file
 ```
 
 ## 🎨 Design Philosophy
 
-- **Pixel Art Aesthetic**: Retro gaming inspired design
-- **Soft Pastel Colors**: Calming and cozy atmosphere
-- **Glass Morphism**: Modern transparent UI elements
-- **Minimal Interface**: Clean, uncluttered design
-- **Accessibility**: High contrast and readable fonts
+- **Modern Pixel Art**: Enhanced retro aesthetics
+- **Accessibility First**: WCAG 2.1 compliant
+- **Mobile-First**: Touch-optimized interface
+- **Performance**: Smooth 60fps experience
+- **Extensibility**: Modular architecture
 
-## 🔧 Customization
+## 🚀 Future Enhancements (v3.0)
 
-### Adding New Backgrounds
-1. Find a high-quality image URL (1200x800 recommended)
-2. Add CSS class in `style.css`:
-```css
-.bg-newtheme {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('your-image-url') !important;
-    background-size: cover;
-    background-position: center;
-}
-```
-3. Add button in HTML and update JavaScript
-
-### Adding New Achievements
-1. Add achievement logic in `checkAchievements()` function
-2. Define achievement conditions and rewards
-3. Achievement automatically displays when earned
-
-## 🐛 Known Issues
-
-- Background images require internet connection
-- Data is stored locally (not synced across devices)
-- Some older browsers may not support all CSS features
-
-## 🚀 Future Enhancements (v2.0)
-
-- Multiple pet types and breeds
-- Online multiplayer features
-- More minigames and activities
-- Seasonal events and themes
-- Pet evolution system
-- Social sharing features
+- **Multiplayer Features**: Visit friends' pets
+- **Breeding System**: Create unique pet combinations
+- **Pet Battles**: Friendly competitions
+- **Social Features**: Share achievements
+- **AR Integration**: Augmented reality pets
+- **Voice Commands**: Talk to your pet
 
 ## 📄 License
 
@@ -160,16 +197,17 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details.
 
 ## 🙏 Acknowledgments
 
-- Background images provided by [Unsplash](https://unsplash.com)
-- Pixel font: Press Start 2P from Google Fonts
-- Inspired by classic Tamagotchi and virtual pet games
+- Enhanced pixel art by community contributors
+- Sound effects from Freesound.org
+- Background music by Kevin MacLeod
+- Beta testing by the Pengu community
 
 ---
 
-**Made with ❤️ for pet lovers everywhere!**
+**Made with ❤️ for virtual pet enthusiasts worldwide!**
 
-*Take good care of your Pengu! 🐧*
+*Experience the next generation of virtual pet care! 🐧✨*

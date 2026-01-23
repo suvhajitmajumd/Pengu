@@ -1,179 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Pengu - Virtual Pet</title>
+    <title>Pengu - Virtual Pet v2.0</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="app-layout">
-        <div class="customize-panel">
-            <h3>Customize</h3>
-            <div class="customize-section">
-                <h4>Color</h4>
-                <div class="color-options">
-                    <button class="color-btn" style="background: #ff9999" onclick="changePetColor('#ff9999')"></button>
-                    <button class="color-btn" style="background: #99ff99" onclick="changePetColor('#99ff99')"></button>
-                    <button class="color-btn" style="background: #9999ff" onclick="changePetColor('#9999ff')"></button>
-                    <button class="color-btn" style="background: #ffff99" onclick="changePetColor('#ffff99')"></button>
-                    <button class="color-btn" style="background: #ff99ff" onclick="changePetColor('#ff99ff')"></button>
-                </div>
+    <div class="app-container">
+        <!-- Sidebar Navigation (PC) / Bottom Navigation (Mobile) -->
+        <nav class="main-nav">
+            <div class="nav-logo">🐧</div>
+            <div class="nav-links">
+                <button class="nav-btn active" onclick="showSection('game')" title="Game">
+                    <span class="nav-icon">🎮</span>
+                    <span class="nav-text">Play</span>
+                </button>
+                <button class="nav-btn" onclick="showSection('customize')" title="Customize">
+                    <span class="nav-icon">✏️</span>
+                    <span class="nav-text">Style</span>
+                </button>
+                <button class="nav-btn" onclick="showSection('about')" title="About">
+                    <span class="nav-icon">ℹ️</span>
+                    <span class="nav-text">About</span>
+                </button>
             </div>
-            
-            <div class="customize-section">
-                <h4>Size</h4>
-                <div class="size-options">
-                    <button class="size-btn" onclick="changePetSize('small')">S</button>
-                    <button class="size-btn" onclick="changePetSize('normal')">M</button>
-                    <button class="size-btn" onclick="changePetSize('large')">L</button>
-                </div>
+            <div class="nav-footer">
+                <button class="quick-btn" onclick="savePet()" title="Save">💾</button>
             </div>
-            
-            <div class="customize-section">
-                <h4>Background</h4>
-                <div class="bg-options">
-                    <button class="bg-btn" onclick="changeBackground('default')">🌸</button>
-                    <button class="bg-btn" onclick="changeBackground('space')">⭐</button>
-                    <button class="bg-btn" onclick="changeBackground('forest')">🌲</button>
-                    <button class="bg-btn" onclick="changeBackground('ocean')">🌊</button>
-                    <button class="bg-btn" onclick="changeBackground('sunset')">🌅</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="main-content">
-            <div class="pet-card">
-                <div class="pet-area">
-                    <div id="pet" class="pet"></div>
-                </div>
-                
-                <div class="status-box">
-                    <p id="status">I'm feeling great!</p>
-                    <div class="stats">
-                        <div class="stat">
-                            <span class="stat-label">Hunger</span>
-                            <div class="stat-bar">
-                                <div id="hunger-bar" class="stat-fill"></div>
+        </nav>
+
+        <main class="content-area">
+            <!-- Game Section -->
+            <div id="game-section" class="section active">
+                <div class="game-grid">
+                    <div class="pet-card-container">
+                        <div class="pet-card">
+                            <div class="pet-area">
+                                <div id="pet" class="pet">
+                                    <div class="pet-face">
+                                        <div class="pet-eyes">
+                                            <div class="pet-eye"></div>
+                                            <div class="pet-eye"></div>
+                                        </div>
+                                        <div class="pet-mouth"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="status-box">
+                                <div class="stat-header">
+                                    <span id="level-display">Lv. 1</span>
+                                    <span id="season-display">Spring</span>
+                                </div>
+                                <p id="status">I'm feeling great!</p>
+                                <div class="stats">
+                                    <div class="stat">
+                                        <span class="stat-label">Hunger</span>
+                                        <div class="stat-bar">
+                                            <div id="hunger-bar" class="stat-fill"></div>
+                                        </div>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-label">Happy</span>
+                                        <div class="stat-bar">
+                                            <div id="happiness-bar" class="stat-fill"></div>
+                                        </div>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-label">Energy</span>
+                                        <div class="stat-bar">
+                                            <div id="energy-bar" class="stat-fill"></div>
+                                        </div>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-label">Social</span>
+                                        <div class="stat-bar">
+                                            <div id="social-bar" class="stat-fill"></div>
+                                        </div>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-label">Hygiene</span>
+                                        <div class="stat-bar">
+                                            <div id="hygiene-bar" class="stat-fill"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="controls">
+                                <button class="pixel-btn feed-btn" onclick="feedPet()">
+                                    <span class="btn-icon">🍎</span>
+                                    <span class="btn-text">Feed</span>
+                                </button>
+                                <button class="pixel-btn sleep-btn" onclick="sleepPet()">
+                                    <span class="btn-icon">💤</span>
+                                    <span class="btn-text">Sleep</span>
+                                </button>
+                                <button class="pixel-btn chat-btn" onclick="chatPet()"
+                                    style="background: #e8f4fd; border-color: #b8d4e8;">
+                                    <span class="btn-icon">💬</span>
+                                    <span class="btn-text">Chat</span>
+                                </button>
+                                <button class="pixel-btn wash-btn" onclick="showerPet()">
+                                    <span class="btn-icon">🛁</span>
+                                    <span class="btn-text">Wash</span>
+                                </button>
                             </div>
                         </div>
-                        <div class="stat">
-                            <span class="stat-label">Happy</span>
-                            <div class="stat-bar">
-                                <div id="happiness-bar" class="stat-fill"></div>
+
+                        <div class="minigames-section">
+                            <h4>Minigames</h4>
+                            <div class="minigame-buttons">
+                                <button class="pixel-btn game-btn" onclick="startBallGame()">
+                                    <span class="btn-icon">🎾</span>
+                                    <span class="btn-text">Ball</span>
+                                </button>
+                                <button class="pixel-btn game-btn" onclick="startMemoryGame()">
+                                    <span class="btn-icon">🧠</span>
+                                    <span class="nav-text">Memory</span>
+                                </button>
+                                <button class="pixel-btn game-btn" onclick="startColorGame()">
+                                    <span class="btn-icon">🎨</span>
+                                    <span class="btn-text">Color</span>
+                                </button>
+                                <button class="pixel-btn game-btn" onclick="startRhythmGame()">
+                                    <span class="btn-icon">🎵</span>
+                                    <span class="btn-text">Rhythm</span>
+                                </button>
                             </div>
                         </div>
-                        <div class="stat">
-                            <span class="stat-label">Energy</span>
-                            <div class="stat-bar">
-                                <div id="energy-bar" class="stat-fill"></div>
+                    </div>
+
+                    <div class="side-panel">
+                        <div id="minigame-area" class="minigame-container hidden">
+                            <!-- Ball Game -->
+                            <div id="ball-game" class="game-area hidden">
+                                <h4>Catch the Ball!</h4>
+                                <div class="ball-field">
+                                    <div id="ball" class="ball"></div>
+                                    <div id="paddle" class="paddle"></div>
+                                </div>
+                                <div class="game-info">
+                                    <span>Score: <span id="ball-score">0</span></span>
+                                    <button class="pixel-btn" onclick="endBallGame()">Stop</button>
+                                </div>
+                            </div>
+
+                            <!-- Memory Game -->
+                            <div id="memory-game" class="game-area hidden">
+                                <h4>Memory Match!</h4>
+                                <div id="memory-grid" class="memory-grid"></div>
+                                <div class="game-info">
+                                    <span>Pairs: <span id="memory-score">0</span></span>
+                                    <button class="pixel-btn" onclick="endMemoryGame()">Stop</button>
+                                </div>
+                            </div>
+
+                            <!-- Color Game -->
+                            <div id="color-game" class="game-area hidden">
+                                <h4>Catch the Color!</h4>
+                                <div class="color-field">
+                                    <div id="target-color" class="target-color"></div>
+                                    <div class="color-buttons">
+                                        <button class="color-catch-btn" style="background: red"
+                                            onclick="catchColor('red')"></button>
+                                        <button class="color-catch-btn" style="background: blue"
+                                            onclick="catchColor('blue')"></button>
+                                        <button class="color-catch-btn" style="background: green"
+                                            onclick="catchColor('green')"></button>
+                                        <button class="color-catch-btn" style="background: yellow"
+                                            onclick="catchColor('yellow')"></button>
+                                    </div>
+                                </div>
+                                <div class="game-info">
+                                    <span>Score: <span id="color-score">0</span></span>
+                                    <button class="pixel-btn" onclick="endColorGame()">Stop</button>
+                                </div>
+                            </div>
+
+                            <!-- Rhythm Game -->
+                            <div id="rhythm-game" class="game-area hidden">
+                                <h4>Rhythm Tap!</h4>
+                                <div class="rhythm-field">
+                                    <div id="rhythm-note" class="rhythm-note"></div>
+                                    <div class="rhythm-target-line"></div>
+                                </div>
+                                <div class="game-info">
+                                    <span>Score: <span id="rhythm-score">0</span></span>
+                                    <button class="pixel-btn" onclick="endRhythmGame()">Stop</button>
+                                </div>
                             </div>
                         </div>
-                        <div class="stat">
-                            <span class="stat-label">Health</span>
-                            <div class="stat-bar">
-                                <div id="health-bar" class="stat-fill"></div>
-                            </div>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-label">Level</span>
-                            <div class="stat-bar">
-                                <div id="level-bar" class="stat-fill"></div>
+
+                        <div class="chat-panel">
+                            <h3>Chat with Pengu</h3>
+                            <div id="chat-messages" class="chat-messages"></div>
+                            <div class="chat-input">
+                                <input type="text" id="user-input" placeholder="Say something..."
+                                    onkeypress="handleEnter(event)">
+                                <button class="pixel-btn" onclick="sendMessage()">Send</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="controls">
-                    <button class="pixel-btn feed-btn" onclick="feedPet()">
-                        <span class="btn-icon">🍎</span>
-                        <span class="btn-text">Feed</span>
-                    </button>
-                    <button class="pixel-btn play-btn" onclick="startMinigame()">
-                        <span class="btn-icon">🎾</span>
-                        <span class="btn-text">Play</span>
-                    </button>
-                    <button class="pixel-btn sleep-btn" onclick="sleepPet()">
-                        <span class="btn-icon">💤</span>
-                        <span class="btn-text">Sleep</span>
-                    </button>
-                </div>
-                
-                <div id="minigame" class="minigame hidden">
-                    <h4>Catch the Ball!</h4>
-                    <div class="game-area">
-                        <div id="ball" class="ball"></div>
-                        <div id="paddle" class="paddle"></div>
+            </div>
+
+            <!-- Customize Section -->
+            <div id="customize-section" class="section">
+                <div class="customize-grid">
+                    <div class="customize-panel">
+                        <h3>Preview</h3>
+                        <div class="pet-area">
+                            <div id="preview-pet" class="pet">
+                                <div class="pet-face">
+                                    <div class="pet-eyes">
+                                        <div class="pet-eye"></div>
+                                        <div class="pet-eye"></div>
+                                    </div>
+                                    <div class="pet-mouth"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="preview-stats" style="text-align: center; margin-top: 15px; font-size: 8px;">
+                            <p id="preview-stage">Stage: Baby</p>
+                        </div>
                     </div>
-                    <div class="game-info">
-                        <span>Score: <span id="score">0</span></span>
-                        <button class="pixel-btn" onclick="endMinigame()">Stop</button>
+
+                    <div class="customize-panel">
+                        <h3>Pet Appearance</h3>
+                        <div class="customize-section">
+                            <h4>Species</h4>
+                            <div class="pet-type-options" style="display: flex; flex-direction: column; gap: 12px;">
+                                <div
+                                    style="display: flex; align-items: center; gap: 12px; padding: 8px; background: rgba(0,0,0,0.03); border-radius: 8px;">
+                                    <button class="type-btn" onclick="changePetType('pengu')"
+                                        style="flex-shrink: 0;">🐧</button>
+                                    <div style="font-size: 7px; line-height: 1.4;">
+                                        <strong>Pengu</strong><br>
+                                        Arctic Metabolism: +20% energy from sleep.
+                                    </div>
+                                </div>
+                                <div
+                                    style="display: flex; align-items: center; gap: 12px; padding: 8px; background: rgba(0,0,0,0.03); border-radius: 8px;">
+                                    <button class="type-btn" onclick="changePetType('kitto')"
+                                        style="flex-shrink: 0;">🐱</button>
+                                    <div style="font-size: 7px; line-height: 1.4;">
+                                        <strong>Kitto</strong><br>
+                                        Solo Spirit: Social need drains 30% slower.
+                                    </div>
+                                </div>
+                                <div
+                                    style="display: flex; align-items: center; gap: 12px; padding: 8px; background: rgba(0,0,0,0.03); border-radius: 8px;">
+                                    <button class="type-btn" onclick="changePetType('doggo')"
+                                        style="flex-shrink: 0;">🐶</button>
+                                    <div style="font-size: 7px; line-height: 1.4;">
+                                        <strong>Doggo</strong><br>
+                                        Loyal Companion: x2 Happiness from play.
+                                    </div>
+                                </div>
+                                <div
+                                    style="display: flex; align-items: center; gap: 12px; padding: 8px; background: rgba(0,0,0,0.03); border-radius: 8px;">
+                                    <button class="type-btn" onclick="changePetType('bunno')"
+                                        style="flex-shrink: 0;">🐰</button>
+                                    <div style="font-size: 7px; line-height: 1.4;">
+                                        <strong>Bunno</strong><br>
+                                        Fast Metabolism: +20% EXP from activities.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="customize-section">
+                            <h4>Color Theme</h4>
+                            <div class="color-options">
+                                <button class="color-btn" style="background: #ff9999"
+                                    onclick="changePetColor('#ff9999')"></button>
+                                <button class="color-btn" style="background: #99ff99"
+                                    onclick="changePetColor('#99ff99')"></button>
+                                <button class="color-btn" style="background: #9999ff"
+                                    onclick="changePetColor('#9999ff')"></button>
+                                <button class="color-btn" style="background: #ffff99"
+                                    onclick="changePetColor('#ffff99')"></button>
+                                <button class="color-btn" style="background: #ff99ff"
+                                    onclick="changePetColor('#ff99ff')"></button>
+                            </div>
+                        </div>
+
+                        <div class="customize-section">
+                            <h4>Management</h4>
+                            <div class="quick-actions horizontal">
+                                <button class="pixel-btn small" onclick="resetPet()">🔄 Reset</button>
+                                <button class="pixel-btn small" onclick="loadPet()">📁 Load</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="extra-controls">
-                    <button class="pixel-btn wash-btn" onclick="washPet()">
-                        <span class="btn-icon">🛁</span>
-                        <span class="btn-text">Wash</span>
-                    </button>
-                    <button class="pixel-btn pet-btn" onclick="petPet()">
-                        <span class="btn-icon">❤️</span>
-                        <span class="btn-text">Pet</span>
-                    </button>
-                    <button class="pixel-btn train-btn" onclick="trainPet()">
-                        <span class="btn-icon">🏃</span>
-                        <span class="btn-text">Train</span>
-                    </button>
-                </div>
-                
-                <div class="achievements">
-                    <h4>Achievements</h4>
-                    <div id="achievement-list" class="achievement-list"></div>
                 </div>
             </div>
-        </div>
-        
-        <div class="chat-panel">
-            <h3>Chat with Pengu</h3>
-            <div id="chat-messages" class="chat-messages"></div>
-            <div class="chat-input">
-                <input type="text" id="user-input" placeholder="Say something..." onkeypress="handleEnter(event)">
-                <button class="pixel-btn" onclick="sendMessage()">Send</button>
+
+            <!-- About Section -->
+            <div id="about-section" class="section">
+                <div class="about-card">
+                    <div class="about-header">
+                        <div class="logo-large">🐧</div>
+                        <h3>Pengu v2.1</h3>
+                        <p>A premium pixel-art pet experience.</p>
+                    </div>
+                    <div class="about-content">
+                        <div class="contact-info">
+                            <div class="contact-item"><span>�</span> suvhajitedu@gmail.com(Devloper)</div>
+                            <div class="contact-item"><span>�</span> suvhajitmajumd.github.io/Pengu</div>
+                            <div class="contact-item"><a href="https://github.com/suvhajitmajumd">Github Profile -- Suvhajit Majumder</a></div>
+                        </div>
+                        <p class="credit">Made with ❤️ for pet lovers</p>
+                    </div>
+                </div>
             </div>
-        </div>
+        </main>
     </div>
-    
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Pet Stats</h4>
-                <div class="footer-stats">
-                    <span id="footer-level">Level: 1</span>
-                    <span id="footer-age">Age: 0 days</span>
-                    <span id="footer-exp">EXP: 0/100</span>
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Quick Actions</h4>
-                <div class="quick-actions">
-                    <button class="quick-btn" onclick="resetPet()">🔄 Reset</button>
-                    <button class="quick-btn" onclick="savePet()">💾 Save</button>
-                    <button class="quick-btn" onclick="loadPet()">📁 Load</button>
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Info</h4>
-                <div class="footer-info">
-                    <span>Pengu v1.0</span>
-                    <span id="uptime">Uptime: 0s</span>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
+
     <script src="script.js"></script>
 </body>
+
 </html>
